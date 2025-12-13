@@ -84,5 +84,70 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&osm>;
     };
+	
+    esc_ralt: escape_ralt {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&bsk RIGHT_ALT RIGHT_ALT>, <&kp ESCAPE>;
+    };	
+	capshift: caps_shift {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&bsk LSHFT LSHFT>, <&kp CAPS>;
+    };	
+	spacetap: space_tap {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&mt LEFT_SHIFT RS(SPACE)>, <&kp SPACE>;
+    };	
+
+	multap: multiply_tap {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&kp KP_MULTIPLY>, <&mult>;
+    };	
+	divtap: divide_tap {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&kp KP_DIVIDE>, <&div>;
+    };
+	mintap: minus_tap {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&hrm DOT KP_MINUS, <&min>;
+    };
+	plustap: plus_tap {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&kp KP_PLUS>, <&plus>;
+    };
+	zerotap: zero_tap {
+	compatible = "zmk,behavior-hold-tap";
+	#binding-cells = <2>;
+	tapping-term-ms = <TAPPING_TERM>
+	bindings = <&zero>, <&kp>;
+	flavor = "tap-preferred";
+	};
+	euro: euro {
+		compatible = "zmk,behavior-macro";
+		#binding-cells = <0>;
+		tap-ms = <0>;
+		wait-ms = <0>;
+		bindings = <&kp LS(SPACE) &kp LS(GRAVE)>;
+	};	
+	zero: zero {
+		compatible = "zmk,behavior-macro";
+		#binding-cells = <0>;
+		tap-ms = <0>;
+		wait-ms = <0>;
+		bindings = <&kp KP_N0 &kp KP_N0>;
+	};
   };
 };

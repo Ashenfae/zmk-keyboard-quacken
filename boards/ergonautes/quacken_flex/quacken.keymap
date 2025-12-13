@@ -3,7 +3,7 @@
 
 // Timing is key.
 #define HRM // comment this line to disable home-row mods
-#define TAPPING_TERM 300
+#define TAPPING_TERM 200
 #include "timing.h"
 
 // Layout-specific actions and symbols.
@@ -21,6 +21,29 @@
 // #include "symbols_azerty.h"
 
 / {
+
+  combos {
+	compatible = "zmk,combos";
+
+	combo_cut {
+		timeout-ms = <50>;
+		key-positions = <25 26>;
+		bindings = <&kp LS(DELETE)>;
+	};
+
+	combo_copy {
+		timeout-ms = <50>;
+		key-positions = <26 27>;
+		bindings = <&kp LC(INSERT)>;
+	};
+
+	combo_paste {
+		timeout-ms = <50>;
+		key-positions = <27 28>;
+		bindings = <&kp LS(INSERT)>;
+	};
+  };
+
   keymap {
     compatible = "zmk,keymap";
 
@@ -30,10 +53,10 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp RBKT   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &kp LBKT
-        &kp TILDE  &kp A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   &kp SEMI   &kp SQT
-        &kp LSHIFT &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &kp RSHIFT
-               &bsk LSHIFT LSHIFT  &sc 4 BSPC  &sc 2 ESC    &sc 2 ENTER  &lt 4 SPACE  &bsl 1 1
+        &kp BACKSLASH   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &kp LBKT
+        &kp NON_US_BSLH  &kp A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   &kp SEMI   &kp SQT
+        &kp PRINTSCREEN &kp Z  &hrm LS(RA(X)) X  &kp C  &kp V  &kp B        &kp N  &hrm RBKT M  &hrm RA(NUBS) COMMA &kp DOT &kp FSLH   &kp EQUAL
+               &sc 3 TAB  &capshift  &esc_ralt    &hrm DEL BSPC  &lt 3 SPACE  &sc 2 ENTER
       >;
     };
 
@@ -55,10 +78,10 @@
     num_row_layer {
       display-name = "NumRow";
       bindings = <
-        &trans  &kp RS(N1) &kp RS(N2) &kp RS(N3) &kp RS(N4) &kp RS(N5)       &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &trans
-        &trans  &kp N1     &kp N2     &kp N3     &kp N4     &kp N5           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &trans
-        &trans  &none      &none      &none      &none      &none            S_MINUS    S_COMMA    S_DOT      S_COLON    S_FSLH     &trans
-                                      &trans  &kp RS(SPACE) &trans           &trans  &kp LS(SPACE) &trans
+        &kp RS(GRAVE)  &kp RS(N1) &kp RS(N2) &kp RS(N3) &kp RS(N4) &kp RS(N5)       &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
+        &kp GRAVE  &kp N1     &kp N2     &hrm KP_MINUS N3     &kp N4     &kp N5           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp MINUS
+        &trans  &none      &none      &none      &none      &none            &none    &none    &none      &none    &kp LS(EQUAL)    &kp EQUAL
+                                      &sc 5 TAB  &trans &trans           &trans  &kp LS(SPACE) &trans
       >;
     };
 
@@ -68,10 +91,10 @@
     num_nav_layer {
       display-name = "NumNav";
       bindings = <
-        &trans  &kp TAB  &kp HOME &kp UP   &kp END   &kp PG_UP    &none    &kp KP_N7 &kp KP_N8 &kp KP_N9  S_FSLH     &trans
-        &trans  &kp CAPS &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS  &kp KP_N4 &kp KP_N5 &kp KP_N6  &kp KP_N0  &trans
-        &trans  X_UNDO   X_CUT    X_COPY   X_PASTE   X_SHTAB      S_COMMA  &kp KP_N1 &kp KP_N2 &kp KP_N3  S_DOT      &trans
-                                  &trans   &lt 5 DEL &trans       &trans   &mo 5     &trans
+        &kp LALT  &kp PG_UP  &kp HOME &kp UP   &kp END   &kp RS(TAB)    &kp MINUS    &kp KP_N7 &kp KP_N8 &kp KP_N9  &euro     &kp RA(N)
+        &kp LCTRL  &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp TAB    &multap  &kp KP_N4 &kp KP_N5 &kp KP_N6  &divtap  &hrm RA(EQUAL) N4
+        &kp C_VOL_UP  &kp C_VOL_DN  &kp C_PREV  &kp C_NEXT  &kp C_PP  &hrm C_MUTE RA(b)     &plustap  &hrm KP_N0 KP_N1 &zerotap KP_N2 &hrm KP_DOT KP_N3 &mintap  &hrm EQUAL N7
+                                  &mo 5   &spacetap &kp ESCAPE       &trans   &spacetap     &sc 5 ENTER
       >;
     };
 
@@ -94,9 +117,9 @@
     function_layer {
       display-name = "Function";
       bindings = <
-        &trans  &kp F1  &kp F2  &kp F3  &kp F4  &none         &none &kp PAUSE_BREAK &kp PSCRN &kp SYSREQ &none      &trans
-        &trans  &kp F5  &kp F6  &kp F7  &kp F8  &none         &none &kp LALT        &kp RCTL  &kp RGUI   &kp RSHIFT &trans
-        &trans  &kp F9  &kp F10 &kp F11 &kp F12 &none         &none &none           &none     &none      &none      &trans
+        &none  &kp F1  &kp F2  &kp F3  &kp F4  &none         &none &kp PAUSE_BREAK &kp PSCRN &kp SYSREQ &none      &trans
+        &none  &kp F5  &kp F6  &kp F7  &kp F8  &none         &none &kp LALT        &kp RCTL  &kp RGUI   &kp RSHIFT &trans
+        &none  &kp F9  &kp F10 &kp F11 &kp F12 &none         &none &none           &none     &none      &none      &trans
                                 &trans  &trans  &bootloader   &sys_reset  &trans  &trans
       >;
     };
