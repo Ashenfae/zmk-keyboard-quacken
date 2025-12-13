@@ -81,7 +81,7 @@
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       tapping-term-ms = <TAPPING_TERM>;
-      flavor = "tap-preferred";
+      flavor = "hold-preferred";
 	  hold-while-undecided;
 	  hold-while-undecided-linger;
       bindings = <&kp>, <&osm>;
