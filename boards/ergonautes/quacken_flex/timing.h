@@ -149,5 +149,29 @@
 		wait-ms = <0>;
 		bindings = <&kp KP_N0 &kp KP_N0>;
 	};
+	  div: div {
+		compatible = "zmk,behavior-macro";
+		#binding-cells = <0>;
+		bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_DIVIDE>;
+	};
+	plus: plus {
+		compatible = "zmk,behavior-macro";
+		#binding-cells = <0>;
+		bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_PLUS>;
+	};
+	mult: mult {
+		compatible = "zmk,behavior-macro";
+		#binding-cells = <0>;
+		bindings =
+			<&macro_tap>,
+			<&kp RA(X)>,
+			<&macro_tap>,
+			<&kp KP_MULTIPLY>;
+	};
+	min: min {
+		compatible = "zmk,behavior-macro";
+		#binding-cells = <0>;
+		bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_MINUS>;
+	};
   };
 };
