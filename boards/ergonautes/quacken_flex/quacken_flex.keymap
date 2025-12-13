@@ -21,6 +21,29 @@
 // #include "symbols_azerty.h"
 
 / {
+
+  combos {
+	compatible = "zmk,combos";
+
+	combo_cut {
+		timeout-ms = <50>;
+		key-positions = <25 26>;
+		bindings = <&kp LS(DELETE)>;
+	};
+
+	combo_copy {
+		timeout-ms = <50>;
+		key-positions = <26 27>;
+		bindings = <&kp LC(INSERT)>;
+	};
+
+	combo_paste {
+		timeout-ms = <50>;
+		key-positions = <27 28>;
+		bindings = <&kp LS(INSERT)>;
+	};
+  };
+
   keymap {
     compatible = "zmk,keymap";
 
