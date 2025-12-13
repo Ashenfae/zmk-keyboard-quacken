@@ -92,7 +92,7 @@
       display-name = "NumNav";
       bindings = <
         &kp LALT  &kp PG_UP  &kp HOME &kp UP   &kp END   &kp RS(TAB)    &kp MINUS    &kp KP_N7 &kp KP_N8 &kp KP_N9  &euro     &kp RA(N)
-        &trans  &kp CAPS &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS  &kp KP_N4 &kp KP_N5 &kp KP_N6  &kp KP_N0  &trans
+        &kp LCTRL  &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp TAB    &multap  &kp KP_N4 &kp KP_N5 &kp KP_N6  &divtap  &hrm RA(EQUAL) N4
         &trans  X_UNDO   X_CUT    X_COPY   X_PASTE   X_SHTAB      S_COMMA  &kp KP_N1 &kp KP_N2 &kp KP_N3  S_DOT      &trans
                                   &trans   &lt 5 DEL &trans       &trans   &mo 5     &trans
       >;
