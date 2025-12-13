@@ -131,7 +131,7 @@
 	zerotap: zero_tap {
 	compatible = "zmk,behavior-hold-tap";
 	#binding-cells = <2>;
-	tapping-term-ms = <TAPPING_TERM>
+	tapping-term-ms = <TAPPING_TERM>;
 	bindings = <&zero>, <&kp>;
 	flavor = "tap-preferred";
 	};
