@@ -120,7 +120,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
 	  tapping-term-ms = <TAPPING_TERM>;
-      bindings = <&hrm DOT KP_MINUS, <&min>;
+      bindings = <&hrm DOT KP_MINUS>, <&min>;
     };
 	plustap: plus_tap {
       compatible = "zmk,behavior-tap-dance";
@@ -151,4 +151,3 @@
 	};
   };
 };
-
