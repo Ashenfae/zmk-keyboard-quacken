@@ -43,6 +43,7 @@
       #binding-cells = <2>;
       tapping-term-ms = <TAPPING_TERM>;
       flavor = "tap-preferred";
+	  require-prior-idle-ms = <200>;
       bindings = <&kp>, <&kp>;
     };
     sc: space_cadet { // same as lt, but with hold-preferred
