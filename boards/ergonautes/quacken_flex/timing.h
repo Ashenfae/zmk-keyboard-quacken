@@ -82,6 +82,7 @@
       #binding-cells = <2>;
       tapping-term-ms = <TAPPING_TERM>;
       flavor = "tap-preferred";
+	  hold-while-undecided;
       bindings = <&kp>, <&osm>;
     };
 	
