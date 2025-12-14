@@ -89,13 +89,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
 	  tapping-term-ms = <TAPPING_TERM>;
-      bindings = <&bsk RIGHT_ALT RIGHT_ALT>, <&kp ESCAPE>;
-    };	
-	capshift: caps_shift {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-	  tapping-term-ms = <TAPPING_TERM>;
-      bindings = <&bsk LSHFT LSHFT>, <&kp CAPS>;
+      bindings = <&sk RIGHT_ALT>, <&kp ESCAPE>;
     };	
 	spacetap: space_tap {
       compatible = "zmk,behavior-tap-dance";
