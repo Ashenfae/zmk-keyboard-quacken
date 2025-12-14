@@ -97,7 +97,12 @@
 	  tapping-term-ms = <TAPPING_TERM>;
       bindings = <&mt LEFT_SHIFT RS(SPACE)>, <&kp SPACE>;
     };	
-
+	printcaps: print_caps {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+	  tapping-term-ms = <TAPPING_TERM>;
+      bindings = <&kp PRINTSCREEN>, <&kp CAPS>;
+    };		  
 	multap: multiply_tap {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
