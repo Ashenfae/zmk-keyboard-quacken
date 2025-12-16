@@ -92,10 +92,10 @@
 	  mods = <(MOD_LSFT)>;
 	};	
     esc_ralt: escape_ralt {
-      compatible = "zmk,behavior-tap-dance";
+      compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-	  tapping-term-ms = <TAPPING_TERM>;
-      bindings = <&sk RIGHT_ALT>, <&kp ESCAPE>;
+      bindings = <&bsk RIGHT_ALT RIGHT_ALT>, <&kp ESCAPE>;
+	  mods = <(MOD_RALT)>;
     };	
 	spacetap: space_tap {
       compatible = "zmk,behavior-tap-dance";

@@ -55,8 +55,8 @@
       bindings = <
         &kp BACKSLASH   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &kp LBKT
         &kp NON_US_BSLH  &kp A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   &kp SEMI   &kp SQT
-        &printcaps &kp Z  &hrm LS(RA(X)) X  &kp C  &kp V  &kp B        &kp N  &hrm RBKT M  &hrm RA(NUBS) COMMA &kp DOT &kp FSLH   &kp EQUAL
-               &sc 3 TAB  &capshift  &esc_ralt    &hrm DEL BSPC  &lt 3 SPACE  &sc 2 ENTER
+        &kp PSCRN  &kp Z  &hrm LS(RA(X)) X  &kp C  &kp V  &kp B        &kp N  &hrm RBKT M  &hrm RA(NUBS) COMMA &kp DOT &kp FSLH   &kp EQUAL
+               &sc 3 TAB  &capshift  &esc_ralt    &hrm DEL BSPC  &lt 3 SPACE  &bsl 2 2
       >;
     };
 
@@ -81,7 +81,7 @@
         &kp RS(GRAVE)  &kp RS(N1) &kp RS(N2) &kp RS(N3) &kp RS(N4) &kp RS(N5)       &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
         &kp GRAVE  &kp N1     &kp N2     &hrm KP_MINUS N3     &kp N4     &kp N5           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp MINUS
         &trans  &none      &none      &none      &none      &none            &none    &none    &none      &none    &kp LS(EQUAL)    &kp EQUAL
-                                      &sc 5 TAB  &trans &trans           &trans  &kp LS(SPACE) &trans
+                                      &sc 5 TAB  &spacetap &trans           &trans  &kp LS(SPACE) &kp ENTER
       >;
     };
 
