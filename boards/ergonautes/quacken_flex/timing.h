@@ -85,7 +85,12 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&osm>;
     };
-	
+	capshift: caps_shift {
+	  compatible = "zmk,behavior-mod-morph";
+	  #binding-cells = <0>;
+	  bindings = <&bsk LSHIFT LSHIFT>, <&kp CAPS>;
+	  mods = <(MOD_LSFT)>;
+	};	
     esc_ralt: escape_ralt {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
@@ -152,25 +157,29 @@
 	  div: div {
 		compatible = "zmk,behavior-macro";
 		#binding-cells = <0>;
+		tap-ms = <0>;
+		wait-ms = <0>;
 		bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_DIVIDE>;
 	};
 	plus: plus {
 		compatible = "zmk,behavior-macro";
 		#binding-cells = <0>;
+		tap-ms = <0>;
+		wait-ms = <0>;
 		bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_PLUS>;
 	};
 	mult: mult {
 		compatible = "zmk,behavior-macro";
 		#binding-cells = <0>;
-		bindings =
-			<&macro_tap>,
-			<&kp RA(X)>,
-			<&macro_tap>,
-			<&kp KP_MULTIPLY>;
+		tap-ms = <0>;
+		wait-ms = <0>;
+		bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_MULTIPLY>;
 	};
 	min: min {
 		compatible = "zmk,behavior-macro";
 		#binding-cells = <0>;
+		tap-ms = <0>;
+		wait-ms = <0>;
 		bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_MINUS>;
 	};
   };
