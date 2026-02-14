@@ -61,6 +61,7 @@
 #define S_COMMA &kp DOT
 #define S_DOT   &kp N
 #define S_MONEY &kp LS(GRAVE)
+#define S_DOT_TYPO &dot_mod
 
 / {
   behaviors {
@@ -70,6 +71,26 @@
       tap-ms = <0>;
       wait-ms = <0>;
       bindings = <&kp RA(Z) &kp SPACE>;
+    };
+    dot_mod: dot_mod {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&dot_ralt>, <&kp N>;
+      mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_LSFT|MOD_RSFT)>;
+    };	  
+    dot_ralt: dot_ralt {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp N>, <&colon>;
+      mods = <(MOD_RALT)>;
+    };	
+    colon: colon {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&kp RA(SPACE) &kp RA(N)>;
     };
   };
 };
