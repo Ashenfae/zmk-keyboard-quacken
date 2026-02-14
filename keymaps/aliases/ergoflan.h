@@ -63,6 +63,11 @@
 #define S_MONEY &kp LS(GRAVE)
 #define S_DOT_TYPO &dot_mod
 
+// RALT prio
+#define EZ_LSL(layer)  lbsl (layer) (layer)
+#define SYM_ALT EZ_SK(RALT)
+#define SYM_ALT_NAV EZ_LSL(SYMBOLS_LAYER)
+
 / {
   behaviors {
     grave: grave {
@@ -91,6 +96,38 @@
       tap-ms = <0>;
       wait-ms = <0>;
       bindings = <&kp RA(SPACE) &kp RA(N)>;
+    };
+    
+    // RALT prio support
+    lmo: goto_layer_then_mo {
+      compatible = "zmk,behavior-macro-one-param";
+      wait-ms = <0>;
+      tap-ms = <0>;
+      #binding-cells = <1>;
+      bindings =
+        <&macro_tap &to BASE_LAYER>,
+        <&macro_param_1to1>,
+        <&macro_press &kp MACRO_PLACEHOLDER>,
+        <&macro_pause_for_release>,
+        <&macro_param_1to1>,
+        <&macro_release &mo MACRO_PLACEHOLDER>;
+    }; 
+    losl: goto_layer_then_osl {
+      compatible = "zmk,behavior-macro-one-param";
+      wait-ms = <0>;
+      tap-ms = <0>;
+      #binding-cells = <1>;
+      bindings =
+        <&macro_tap &to BASE_LAYER>,
+        <&macro_param_1to1>,
+        <&macro_tap &sl MACRO_PLACEHOLDER>;
+    };
+    lbsl: bsl_on_other_layer {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <TAPPING_TERM>;
+      flavor = "tap-preferred";
+      bindings = <&lmo>, <&losl>;
     };
   };
 };
