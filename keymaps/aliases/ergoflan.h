@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/keys.h>
+#include "hold_taps.dtsi"
 
 /**
  * Action Combos
