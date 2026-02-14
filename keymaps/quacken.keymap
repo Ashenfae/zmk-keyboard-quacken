@@ -10,6 +10,7 @@
 // #define KB_LAYOUT_QWERTY_LAFAYETTE
 // #define KB_LAYOUT_AZERTY
 // #define KB_LAYOUT_ERGOL
+#define KB_LAYOUT_ERGOFLAN
 
 // Uncomment the folowing line if using a Mac:
 

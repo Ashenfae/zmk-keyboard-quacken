@@ -13,6 +13,11 @@
 #ifdef KB_LAYOUT_ERGOL
 #include "aliases/ergol.h"
 
+#elifdef KB_LAYOUT_ERGOFLAN
+#define KEYPAD_NUMBERS
+#include "aliases/ergoflan.h"
+#include "extra_layers/ergoflan.dtsi"
+
 #elifdef KB_LAYOUT_AZERTY
 #define SHIFTED_NUMBERS
 #include "aliases/azerty.h"
