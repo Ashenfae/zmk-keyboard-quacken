@@ -1,5 +1,4 @@
 #include <dt-bindings/zmk/keys.h>
-#include "hold_taps.dtsi"
 
 /**
  * Action Combos
@@ -106,7 +105,7 @@
       tap-ms = <0>;
       #binding-cells = <1>;
       bindings =
-        <&macro_tap &to BASE_LAYER>,
+        <&macro_tap &to 0>,
         <&macro_param_1to1>,
         <&macro_press &mo MACRO_PLACEHOLDER>,
         <&macro_pause_for_release>,
@@ -119,7 +118,7 @@
       tap-ms = <0>;
       #binding-cells = <1>;
       bindings =
-        <&macro_tap &to BASE_LAYER>,
+        <&macro_tap &to 0>,
         <&macro_param_1to1>,
         <&macro_tap &sl MACRO_PLACEHOLDER>;
     };
