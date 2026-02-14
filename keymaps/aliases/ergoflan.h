@@ -66,7 +66,7 @@
 // RALT prio
 #define EZ_LSL(layer)  lbsl (layer) (layer)
 #define SYM_ALT EZ_SK(RALT)
-#define SYM_ALT_NAV EZ_LSL(SYMBOLS_LAYER)
+#define SYM_ALT_NAV &EZ_LSL(SYMBOLS_LAYER)
 
 / {
   behaviors {
@@ -107,7 +107,7 @@
       bindings =
         <&macro_tap &to BASE_LAYER>,
         <&macro_param_1to1>,
-        <&macro_press &kp MACRO_PLACEHOLDER>,
+        <&macro_press &mo MACRO_PLACEHOLDER>,
         <&macro_pause_for_release>,
         <&macro_param_1to1>,
         <&macro_release &mo MACRO_PLACEHOLDER>;
