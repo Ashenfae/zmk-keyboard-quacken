@@ -65,7 +65,7 @@
 
 // RALT prio
 #define EZ_LSL(layer)  lbsl (layer) (layer)
-#define SYM_ALT &EZ_SK(RALT)
+#define SYM_ALT EZ_SK(RALT)
 #define SYM_ALT_NAV &EZ_LSL(SYMBOLS_LAYER)
 
 / {
