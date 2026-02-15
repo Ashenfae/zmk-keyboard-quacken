@@ -98,6 +98,36 @@
       bindings = <&kp RA(SPACE) &kp RA(N)>;
     };
     
-
+    // RALT prio support
+    lmo: goto_layer_then_mo {
+      compatible = "zmk,behavior-macro-one-param";
+      wait-ms = <0>;
+      tap-ms = <0>;
+      #binding-cells = <1>;
+      bindings =
+        <&macro_tap &to 0>,
+        <&macro_param_1to1>,
+        <&macro_press &mo MACRO_PLACEHOLDER>,
+        <&macro_pause_for_release>,
+        <&macro_param_1to1>,
+        <&macro_release &mo MACRO_PLACEHOLDER>;
+    }; 
+    losl: goto_layer_then_osl {
+      compatible = "zmk,behavior-macro-one-param";
+      wait-ms = <0>;
+      tap-ms = <0>;
+      #binding-cells = <1>;
+      bindings =
+        <&macro_tap &to 0>,
+        <&macro_param_1to1>,
+        <&macro_tap &sl MACRO_PLACEHOLDER>;
+    };
+    lbsl: bsl_on_other_layer {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <TAPPING_TERM>;
+      flavor = "tap-preferred";
+      bindings = <&lmo>, <&losl>;
+    };
   };
 };
