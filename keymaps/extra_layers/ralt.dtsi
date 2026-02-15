@@ -1,3 +1,4 @@
+#include "../hold_taps.dtsi"
 / {
   behaviors {
     lmo: goto_layer_then_mo {

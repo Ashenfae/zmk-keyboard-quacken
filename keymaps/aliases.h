@@ -18,6 +18,7 @@
 #define RALT_PRIO
 #include "aliases/ergoflan.h"
 
+
 #elifdef KB_LAYOUT_AZERTY
 #define SHIFTED_NUMBERS
 #include "aliases/azerty.h"
