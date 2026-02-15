@@ -11,6 +11,7 @@
 // #define KB_LAYOUT_AZERTY
 // #define KB_LAYOUT_ERGOL
 #define KB_LAYOUT_ERGOFLAN
+#define RALT_PRIO
 
 // Uncomment the folowing line if using a Mac:
 
