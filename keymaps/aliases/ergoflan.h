@@ -63,11 +63,6 @@
 #define S_MONEY &kp LS(GRAVE)
 #define S_DOT_TYPO &dot_mod
 
-// RALT prio
-#define EZ_LSL(layer)  lbsl (layer) (layer)
-#define SYM_ALT &EZ_SK(RALT)
-#define SYM_ALT_NAV &EZ_LSL(SYMBOLS_LAYER)
-
 / {
   behaviors {
     grave: grave {

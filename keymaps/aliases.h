@@ -15,6 +15,7 @@
 
 #elifdef KB_LAYOUT_ERGOFLAN
 #define KEYPAD_NUMBERS
+#define RALT_PRIO
 #include "aliases/ergoflan.h"
 
 #elifdef KB_LAYOUT_AZERTY

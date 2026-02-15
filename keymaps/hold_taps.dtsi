@@ -119,9 +119,13 @@
   #define RTHUMB_TUCK   RTHUMB_REACH
 #endif
 
-#ifndef RALT_PRIO
-#define SYM_ALT &sym_shift_altgr
-#define SYM_ALT_NAV &EZ_LSK(RALT)
+#ifdef RALT_PRIO
+  #define EZ_LSL(layer)  lbsl (layer) (layer)
+  #define SYM_ALT &EZ_SK(RALT)
+  #define SYM_ALT_NAV &EZ_LSL(SYMBOLS_LAYER)
+#else
+  #define SYM_ALT &sym_shift_altgr
+  #define SYM_ALT_NAV &EZ_LSK(RALT)
 #endif
 
 /**
