@@ -61,4 +61,5 @@
 #define S_COMMA &kp M
 #define S_DOT   &kp LS(COMMA)
 #define S_MONEY &kp RA(E)
+#define S_DOT_TYPO S_COLON
 
