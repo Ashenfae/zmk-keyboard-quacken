@@ -61,7 +61,6 @@
 #define S_COMMA &kp COMMA
 #define S_DOT   &kp DOT
 #define S_MONEY &euro
-#define S_DOT_TYPO S_COLON
 
 / {
   behaviors {
