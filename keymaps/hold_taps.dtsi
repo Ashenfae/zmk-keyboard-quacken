@@ -70,7 +70,7 @@
 #if defined HT_COMPACT && !defined VIM_NAVIGATION
   #define SYM_NUM_LAYER &sc NUM_NAV_LAYER CAPSLOCK
 #else
-  #define SYM_NUM_LAYER &EZ_SL(NUM_LAYER)
+  #define SYM_NUM_LAYER &EZ_SL(NUM_NAV_LAYER)
 #endif
 
 #ifdef LHAND_SPACE
