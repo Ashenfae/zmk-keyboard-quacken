@@ -33,27 +33,27 @@
 #endif
 
 #if defined HT_HOME_ROW_MODS || defined HT_COMPACT
-  #define HRM_S &hrm LGUI S
-  #define HRM_D &hrm LCTL D
-  #define HRM_F &hrm LALT F
-  #define HRM_J &hrm LALT J
-  #define HRM_K &hrm RCTL K
-  #define HRM_L &hrm RGUI L
+  #define HRML_GUI &hrm LGUI
+  #define HRML_CTL &hrm LCTL
+  #define HRML_ALT &hrm LALT
+  #define HRMR_ALT &hrm LALT
+  #define HRMR_CTL &hrm RCTL
+  #define HRMR_GUI &hrm RGUI
 #else
-  #define HRM_S &kp S
-  #define HRM_D &kp D
-  #define HRM_F &kp F
-  #define HRM_J &kp J
-  #define HRM_K &kp K
-  #define HRM_L &kp L
+  #define HRML_GUI &kp
+  #define HRML_CTL &kp
+  #define HRML_ALT &kp
+  #define HRMR_ALT &kp
+  #define HRMR_CTL &kp
+  #define HRMR_GUI &kp
 #endif
 
 #ifdef HRM_SHIFT
-  #define HRM_A    &hrm LSHIFT A
-  #define HRM_SEMI &hrm RSHIFT SEMI
+  #define HRML_SHIFT    &hrm LSHIFT
+  #define HRMR_SHIFT &hrm RSHIFT
 #else
-  #define HRM_A    &kp A
-  #define HRM_SEMI &kp SEMI
+  #define HRML_SHIFT    &kp
+  #define HRMR_SHIFT &kp
 #endif
 
 
