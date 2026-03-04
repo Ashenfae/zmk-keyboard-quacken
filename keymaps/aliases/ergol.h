@@ -62,4 +62,5 @@
 #define S_DOT   &kp N
 #define S_MONEY &kp LS(N1)
 #define S_DOT_TYPO S_COLON
+#define S_DEGRE &trans
 

@@ -62,7 +62,7 @@
 #define S_DOT   &kp N
 #define S_MONEY &euro
 #define S_DOT_TYPO &dot_mod
-
+#define S_DEGRE  &celsius
 
 / {
   behaviors {
