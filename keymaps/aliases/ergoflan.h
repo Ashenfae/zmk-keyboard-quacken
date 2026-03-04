@@ -60,8 +60,9 @@
 // extra
 #define S_COMMA &kp DOT
 #define S_DOT   &kp N
-#define S_MONEY &kp LS(GRAVE)
+#define S_MONEY &euro
 #define S_DOT_TYPO &dot_mod
+#define S_DEGRE  &celsius
 
 / {
   behaviors {
@@ -91,6 +92,20 @@
       tap-ms = <0>;
       wait-ms = <0>;
       bindings = <&kp RA(SPACE) &kp RA(N)>;
+    };
+    euro: euro {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&kp LS(SPACE) &kp LS(GRAVE)>;
+    };
+    celsius: celsius {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&kp LS(SPACE) &kp LS(RA(EQUAL))>;
     };
   };
 };

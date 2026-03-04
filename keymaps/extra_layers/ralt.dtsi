@@ -10,12 +10,11 @@
       tap-ms = <0>;
       #binding-cells = <1>;
       bindings =
-        <&macro_tap &to BASE_LAYER>,
         <&macro_param_1to1>,
-        <&macro_press &mo MACRO_PLACEHOLDER>,
+        <&macro_tap &to MACRO_PLACEHOLDER>,
         <&macro_pause_for_release>,
         <&macro_param_1to1>,
-        <&macro_release &mo MACRO_PLACEHOLDER>;
+        <&macro_tap &to NUM_LOCK_LAYER>;
     }; 
     losl: goto_layer_then_osl {
       compatible = "zmk,behavior-macro-one-param";
@@ -25,7 +24,8 @@
       bindings =
         <&macro_tap &to BASE_LAYER>,
         <&macro_param_1to1>,
-        <&macro_tap &sl MACRO_PLACEHOLDER>;
+        <&macro_tap &sl MACRO_PLACEHOLDER>,
+        <&macro_tap &to NUM_LOCK_LAYER>;
     };
     lbsl: bsl_on_other_layer {
       compatible = "zmk,behavior-hold-tap";
@@ -34,5 +34,22 @@
       flavor = "tap-preferred";
       bindings = <&lmo>, <&losl>;
     };
+    llt: lower_layer_tap { // same as lt, but for lower layer
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <TAPPING_TERM>;
+      quick-tap-ms = <QUICK_TAP>;
+      flavor = "tap-preferred";
+      bindings = <&lmo>, <&kp>;
+    };    
+    lsc: space_cadet { // same as sc, but for lower layer
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <SHORT_TAPPING_TERM>;
+      quick-tap-ms = <QUICK_TAP>;
+      flavor = "hold-preferred";
+      bindings = <&lmo>, <&kp>;
+    };
+    
   };
 };
