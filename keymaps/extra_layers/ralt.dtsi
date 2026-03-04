@@ -22,7 +22,6 @@
       release-after-ms = <1000>;
       quick-release;
       ignore-modifiers;
-      };
     };
     lbsl: bsl_from_numlock_layer {
       compatible = "zmk,behavior-hold-tap";
