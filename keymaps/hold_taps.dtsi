@@ -135,6 +135,8 @@
 
 #ifndef RALT_PRIO
   #define SYM_ALT &sym_shift_altgr
+#else
+  #define SYM_ALT &EZ_SK(RALT)
 #endif
 
 
