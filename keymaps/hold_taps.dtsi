@@ -16,10 +16,11 @@
 #define NUM_NAV_LAYER  4
 #define NUM_ROW_LAYER  5
 #define FUNCTION_LAYER 6
+#define SEC_SYM_LAYER  7
 
 // Potentially used by other keymaps deriving from this one, who may add extra layers.
 // Make sure this stays equal to <index_of_last_layer> + 1
-#define EXTRA_LAYERS_START_INDEX 7
+#define EXTRA_LAYERS_START_INDEX 8
 
 
 /**
@@ -133,8 +134,17 @@
   #define RTHUMB_TUCK   RTHUMB_REACH
 #endif
 
+/**
+ * Allowing some layouts to prioritze RALT over SYMBOLS_LAYER
+*/
 
-#define SYM_ALT &sym_shift_altgr
+#ifdef RALT_PRIO
+  #define SYM_ALT &EZ_SK(RALT)
+  #define SYM_ALT_NAV &EZ_SL(SEC_SYM_LAYER) 
+#else
+  #define SYM_ALT &sym_shift_altgr
+  #define SYM_ALT_NAV &EZ_LSK(RALT)
+#endif
 
 
 /**
