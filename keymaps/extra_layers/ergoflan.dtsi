@@ -1,4 +1,5 @@
 #define SEC_SYM_LAYER   EXTRA_LAYERS_START_INDEX
+#define SYM_ALT &EZ_SK(RALT)
 
 
 / {

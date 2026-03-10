@@ -116,7 +116,7 @@
   #define LTHUMB_REACH  &mt LGUI REACH_TAP
   #define RTHUMB_REACH  &mt LALT ENTER
   #define RTHUMB_HOME   RTHUMB_TT
-  #define RTHUMB_TUCK   &sym_shift_altgr
+  #define RTHUMB_TUCK   SYM_ALT
 #elifdef HT_HOME_ROW_MODS
   #define LTHUMB_TUCK   &EZ_SK(LSHIFT)
   #define LTHUMB_HOME   LTHUMB_HRM
@@ -133,11 +133,8 @@
   #define RTHUMB_TUCK   RTHUMB_REACH
 #endif
 
-#ifndef RALT_PRIO
-  #define SYM_ALT &sym_shift_altgr
-#else
-  #define SYM_ALT &EZ_SK(RALT)
-#endif
+
+#define SYM_ALT &sym_shift_altgr
 
 
 /**
