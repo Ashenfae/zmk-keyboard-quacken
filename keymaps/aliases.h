@@ -20,6 +20,12 @@
 #elifdef KB_LAYOUT_QWERTY_LAFAYETTE
 #include "aliases/qwerty_lafayette.h"
 
+#elifdef KB_LAYOUT_ERGOFLAN
+#define KEYPAD_NUMBERS
+#define NAVROW_NAVIGATION
+#define RALT_PRIO
+#include "aliases/ergoflan.h"
+
 #else
 #include "aliases/qwerty.h"
 
@@ -38,6 +44,17 @@
   #define S_N7  &kp LS(N7)
   #define S_N8  &kp LS(N8)
   #define S_N9  &kp LS(N9)
+#elifdef KEYPAD_NUMBERS
+  #define S_N0  &kp KP_N0
+  #define S_N1  &kp KP_N1
+  #define S_N2  &kp KP_N2
+  #define S_N3  &kp KP_N3
+  #define S_N4  &kp KP_N4
+  #define S_N5  &kp KP_N5
+  #define S_N6  &kp KP_N6
+  #define S_N7  &kp KP_N7
+  #define S_N8  &kp KP_N8
+  #define S_N9  &kp KP_N9
 #else
   #define S_N0  &kp N0
   #define S_N1  &kp N1

@@ -67,6 +67,12 @@
   #define HRM_LAYER NUM_ROW_LAYER
   #define S34_LAYER NUM_ROW_LAYER
   #define REACH_TAP ESCAPE
+#elif NAVROW_NAVIGATION
+  #define NAV_LAYER NUM_NAV_LAYER
+  #define NUM_LAYER NUM_ROW_LAYER
+  #define HRM_LAYER NUM_ROW_LAYER
+  #define S34_LAYER NUM_NAV_LAYER
+  #define REACH_TAP TAB
 #else
   #define NAV_LAYER NUM_NAV_LAYER
   #define NUM_LAYER NUM_NAV_LAYER
@@ -117,7 +123,7 @@
   #define LTHUMB_REACH  &sc HRM_LAYER REACH_TAP
   #define RTHUMB_REACH  &sc HRM_LAYER ENTER
   #define RTHUMB_HOME   RTHUMB_HRM
-  #define RTHUMB_TUCK   &sym_shift_altgr
+  #define RTHUMB_TUCK   SYM_ALT
 #elifdef HT_TWO_THUMB_KEYS
   #define LTHUMB_TUCK   &mt LSHIFT REACH_TAP
   #define LTHUMB_HOME   LTHUMB_S34
@@ -125,6 +131,10 @@
   #define RTHUMB_REACH  &sc SYMBOLS_LAYER ENTER
   #define RTHUMB_HOME   RTHUMB_S34
   #define RTHUMB_TUCK   RTHUMB_REACH
+#endif
+
+#ifndef RALT_PRIO
+  #define SYM_ALT &sym_shift_altgr
 #endif
 
 

@@ -1,0 +1,84 @@
+#define SEC_SYM   EXTRA_LAYERS_START_INDEX
+
+#define SYM_ALT &EZ_SK(RALT)
+
+
+/ {
+  behaviors {
+    dot_mod: dot_mod {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&dot_ralt>, <&kp N>;
+      mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_LSFT|MOD_RSFT)>;
+    };	  
+    dot_ralt: dot_ralt {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp N>, <&colon>;
+      mods = <(MOD_RALT)>;
+    };	
+    colon: colon {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&kp RA(SPACE) &kp RA(N)>;
+    };
+  };
+};
+
+&base_layer {
+  display-name = "Base";
+  bindings = <
+    &kp BSLH   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y       &kp U  &kp I     &kp O   &kp P      &kp LBKT
+    &kp NUBS   HRM_A  HRM_S  HRM_D  HRM_F  &kp G        &kp H       HRM_J  HRM_K     HRM_L   HRM_SEMI   &kp SQT
+    &kp RBKT   &kp Z  &kp X  &kp C  &kp V  &kp B        &dot_mod  &kp M  &kp COMMA &kp DOT &kp FSLH   &kp RA(NUBS)
+            LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH  RTHUMB_HOME  RTHUMB_TUCK
+  >;
+};
+
+&num_lock_layer: num_lock_layer {
+  display-name = "NumLock";
+  bindings = <
+    &none  &kp ESC  &kp HOME &kp UP   &kp END   &kp PG_UP    &to BASE_LAYER S_N7  S_N8  S_N9  S_FSLH  S_MONEY
+    &none  S_EQUAL  &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS        S_N4  S_N5  S_N6  S_N0    S_DEGRE
+    &none  S_MONEY  S_COLON  S_STAR   S_PLUS    S_PRCNT      S_COMMA        S_N1  S_N2  S_N3  S_DOT   &kp RA(X)
+             &trans  &sc NUM_NAV_LAYER BACKSPACE  &kp (TAB)  &trans  &lt NUM_NAV_LAYER LS(SPACE)  &EZ_SL(SYMBOLS_LAYER)
+  >;
+};
+
+&num_nav_layer: num_nav_layer {
+  display-name = "NumNav";
+  bindings = <
+    &none  &kp ESC  &kp HOME &kp UP   &kp END   &kp PG_UP    &to HIGHER_LOCK_LAYER S_N7  S_N8  S_N9  S_FSLH  S_MONEY
+    &none  X_ALL    &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS            S_N4  S_N5  S_N6  S_N0    S_DEGRE
+    &none  X_UNDO   X_CUT    X_COPY   X_PASTE   X_REDO       S_COMMA            S_N1  S_N2  S_N3  S_DOT   &kp RA(X)
+           &kp CAPSLOCK  &sc FUNCTION_LAYER DEL  &kp LS(TAB)  &kp ESCAPE  &lt FUNCTION_LAYER LS(SPACE)  &EZ_SL(SEC_SYM_LAYER)
+  >;
+};
+
+&num_row_layer: num_row_layer {
+  display-name = "NumRow";
+    bindings = <
+      &kp RS(GRAVE) &kp RS(N1) &kp RS(N2) &kp RS(N3) &kp RS(N4) &kp RS(N5)       &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0)    &kp LS(MINUS)
+      &kp GRAVE     &kp N1     &kp N2     &kp N3     &kp N4     &kp N5           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0        &kp MINUS
+      &trans        &none      &none      &none      &none      &none            &none      &none      &none      &none      &kp LS(EQUAL) &kp EQUAL
+                                   &EZ_SK(RALT)  &kp RS(SPACE) &trans           &trans  &kp LS(SPACE) &EZ_SK(RALT)
+    >;
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    sec_sym_layer: secundary_sym_layer {
+      display-name = "Symbols";
+      bindings = <
+        &none  S_CARET S_LT    S_GT    S_DLLR  S_PRCNT       S_AT    S_AMPS  S_STAR  S_SQT   S_GRAVE  S_MONEY
+        &none  S_LBRC  S_LPAR  S_RPAR  S_RBRC  S_EQUAL       S_BSLH  S_PLUS  S_MINUS S_FSLH  S_DQT    S_DEGRE
+        &none  S_TILDE S_LBKT  S_RBKT  S_UNDER S_HASH        S_PIPE  S_EXCL  S_SEMI  S_COLON S_QMARK  &kp RA(X)
+                    &kp SPACE  &kp BACKSPACE  &kp ENTER     &trans  &kp RALT  &trans
+      >;
+    };
+  };
+};
