@@ -1,5 +1,3 @@
-
-
 / {
   behaviors {
     dot_mod: dot_mod {
