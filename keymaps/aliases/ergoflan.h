@@ -5,9 +5,9 @@
  */
 
 #define X_UNDO  &kp CMD(SQT)
-#define X_CUT   &kp CMD(Q)
-#define X_COPY  &kp CMD(COMMA)
-#define X_PASTE &kp CMD(V)
+#define X_CUT   &kp LS(DELETE)
+#define X_COPY  &kp LC(INSERT)
+#define X_PASTE &kp LS(INSERT)
 #define X_REDO  &kp CMD(P)
 
 #define X_CLOSE &kp CMD(T)
