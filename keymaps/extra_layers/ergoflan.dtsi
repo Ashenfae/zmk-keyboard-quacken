@@ -36,7 +36,7 @@
   >;
 };
 
-&num_lock_layer: num_lock_layer {
+&num_lock_layer {
   display-name = "NumLock";
   bindings = <
     &none  &kp ESC  &kp HOME &kp UP   &kp END   &kp PG_UP    &to BASE_LAYER S_N7  S_N8  S_N9  S_FSLH  S_MONEY
@@ -46,17 +46,17 @@
   >;
 };
 
-&num_nav_layer: num_nav_layer {
+&num_nav_layer {
   display-name = "NumNav";
   bindings = <
-    &none  &kp ESC  &kp HOME &kp UP   &kp END   &kp PG_UP    &to HIGHER_LOCK_LAYER S_N7  S_N8  S_N9  S_FSLH  S_MONEY
+    &none  &kp ESC  &kp HOME &kp UP   &kp END   &kp PG_UP    &to NUM_LOCK_LAYER S_N7  S_N8  S_N9  S_FSLH  S_MONEY
     &none  X_ALL    &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS            S_N4  S_N5  S_N6  S_N0    S_DEGRE
     &none  X_UNDO   X_CUT    X_COPY   X_PASTE   X_REDO       S_COMMA            S_N1  S_N2  S_N3  S_DOT   &kp RA(X)
            &kp CAPSLOCK  &sc FUNCTION_LAYER DEL  &kp LS(TAB)  &kp ESCAPE  &lt FUNCTION_LAYER LS(SPACE)  &EZ_SL(SEC_SYM_LAYER)
   >;
 };
 
-&num_row_layer: num_row_layer {
+&num_row_layer {
   display-name = "NumRow";
     bindings = <
       &kp RS(GRAVE) &kp RS(N1) &kp RS(N2) &kp RS(N3) &kp RS(N4) &kp RS(N5)       &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0)    &kp LS(MINUS)
