@@ -1,3 +1,6 @@
+#define SEC_SYM_LAYER EXTRA_LAYERS_START_INDEX
+#define EXTRA_LAYERS_START_INDEX (EXTRA_LAYERS_START_INDEX + 1)
+
 / {
   keymap {
     compatible = "zmk,keymap";
