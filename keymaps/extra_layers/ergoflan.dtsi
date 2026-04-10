@@ -91,7 +91,7 @@
         <&macro_param_2to1>,
         <&kp MACRO_PLACEHOLDER>;
     };
-    dead_key_shifted {
+    dead_key_shifted: dead_key_shifted {
       compatible = "zmk,behavior-macro-two-param";
       #binding-cells = <2>;
       tap-ms = <0>;
