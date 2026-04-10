@@ -101,7 +101,7 @@
         <&kp MACRO_PLACEHOLDER>,
         <&macro_pause_for_release>,
         <&macro_param_2to1>,
-        <&kp MACRO_PLACEHOLDER>
+        <&kp MACRO_PLACEHOLDER>, 
         <&kt LSHIFT>;
     };
     dk: dk {
