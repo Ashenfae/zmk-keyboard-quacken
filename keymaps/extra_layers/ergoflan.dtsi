@@ -99,7 +99,7 @@
     };      
     dkc: dead_key_circumflex {
       compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <2>;
+      #binding-cells = <1>;
       tap-ms = <0>;
       wait-ms = <0>;
       bindings =
