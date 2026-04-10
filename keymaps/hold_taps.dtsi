@@ -139,6 +139,7 @@
 
 #ifdef SEC_SYM
   #define SEC_SYM_LAYER EXTRA_LAYERS_START_INDEX
+  #define SYM_LAYER     SEC_SYM_LAYER
   #define SYM_ALT_NAV   &EZ_SL(SEC_SYM_LAYER) 
 #else
   #define SYM_LAYER   SYMBOLS_LAYER
