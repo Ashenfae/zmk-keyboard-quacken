@@ -19,7 +19,12 @@
 
 // Potentially used by other keymaps deriving from this one, who may add extra layers.
 // Make sure this stays equal to <index_of_last_layer> + 1
-#define EXTRA_LAYERS_START_INDEX 7
+#ifdef SEC_SYM
+  #define SEC_SYM_LAYER 7
+  #define EXTRA_LAYERS_START_INDEX 8
+#else 
+  #define EXTRA_LAYERS_START_INDEX 7
+#endif
 
 
 /**
@@ -138,7 +143,6 @@
 */
 
 #ifdef SEC_SYM
-  #define SEC_SYM_LAYER EXTRA_LAYERS_START_INDEX
   #define SYM_LAYER     SEC_SYM_LAYER
   #define SYM_ALT_NAV   &EZ_SL(SEC_SYM_LAYER) 
 #else
