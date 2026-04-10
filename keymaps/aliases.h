@@ -22,8 +22,7 @@
 
 #elifdef KB_LAYOUT_ERGOFLAN
 #define KEYPAD_NUMBERS
-#define NAVROW_NAVIGATION
-#define RALT_PRIO
+#define SEC_SYM
 #include "aliases/ergoflan.h"
 
 #else

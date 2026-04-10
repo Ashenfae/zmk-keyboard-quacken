@@ -1,35 +1,13 @@
-/ {
-  behaviors {
-    dot_mod: dot_mod {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&dot_ralt>, <&kp N>;
-      mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_LSFT|MOD_RSFT)>;
-      keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_LSFT|MOD_RSFT)>;
-    };	  
-    dot_ralt: dot_ralt {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp N>, <&colon>;
-      mods = <(MOD_RALT)>;
-    };	
-    colon: colon {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      tap-ms = <0>;
-      wait-ms = <0>;
-      bindings = <&kp RA(SPACE) &kp RA(N)>;
-    };
-  };
-};
+#define ODK_LAYER        EXTRA_LAYERS_START_INDEX
+#define ODK_SHIFT_LAYER (EXTRA_LAYERS_START_INDEX + 1)
 
 &base_layer {
   display-name = "Base";
   bindings = <
-    &kp BSLH   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y       &kp U  &kp I     &kp O   &kp P      &kp LBKT
-    &kp NUBS   HRM_A  HRM_S  HRM_D  HRM_F  &kp G        &kp H       HRM_J  HRM_K     HRM_L   HRM_SEMI   &kp SQT
-    &kp RBKT   &kp Z  &kp X  &kp C  &kp V  &kp B        &dot_mod  &kp M  &kp COMMA &kp DOT &kp FSLH   &kp RA(NUBS)
-            LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH  RTHUMB_HOME  RTHUMB_TUCK
+    &kp BSLH   &kp Q  &kp W  &kp E    &kp R  &kp T        &kp Y    &kp U  &kp I     &kp O   &kp P      &kp LBKT
+    &kp NUBS   HRM_A  HRM_S  HRM_D    HRM_F  &kp G        &kp H    HRM_J  HRM_K     HRM_L   HRM_SEMI   &kp SQT
+    &kp RBKT   &kp Z  &kp X  &hyphen  &kp V  &kp B        &kb N    &kp M  &kp COMMA &odk    &kp FSLH   &kp RA(NUBS)
+              LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH  RTHUMB_HOME  RTHUMB_TUCK
   >;
 };
 
@@ -40,6 +18,96 @@
       &kp GRAVE     &kp N1     &kp N2     &kp N3     &kp N4     &kp N5           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0        &kp MINUS
       &trans        &none      &none      &none      &none      &none            &none      &none      &none      &none      &kp LS(EQUAL) &kp EQUAL
                                    &EZ_SK(RALT)  &kp RS(SPACE) &trans           &trans  &kp LS(SPACE) &EZ_SK(RALT)
-    >;
-  };
+  >;
+};
 
+/ {
+  behaviors {
+    hyphen: hyphen {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&hyphen_colon>, <S_HYPHEN>;
+      mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
+      keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
+    };	  
+    hyphen_colon: hyphen_colon {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <S_HYPHEN>, <&colon>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };	
+    colon: colon {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&kp RA(SPACE) &kp RA(N)>;
+    };
+    
+    odk: odk {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&odk_shift>, <&kp DOT>;
+      mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
+      keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
+    };	  
+    odk_shift: odk_shift {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&EZ_SL(ODK_LAYER)>, <&EZ_SL(ODK_SHIFT_LAYER)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };	
+    
+    comma: comma {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&kp DOT &kp SPACE>;
+    };
+    excl: excl {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&kp LS(DOT) &kp SPACE>;
+    };
+    
+    dk: deak_key {
+      compatible = "zmk,behavior-macro-two-param";
+      #binding-cells = <2>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings =
+        <&macro_param_1to1>,
+        <&kp MACRO_PLACEHOLDER>,
+        <&macro_pause_for_release>,
+        <&macro_param_2to1>,
+        <&kp MACRO_PLACEHOLDER>;
+    };
+  };
+  
+  // Extra layers defined specifically for this keymap, appended to the base keymap.
+  keymap {
+    compatible = "zmk,keymap";
+
+    one_dead_key {
+      display-name = "OneDeadKey";
+      bindings = <
+        &kp RA(BSLH)     &dk C A    &trans       &dk C E     &kp N2       &trans             &trans         &kp N9  &dk RA(S) I    &kp RA(O)    &dk C SEMI    &trans  
+        &dk RA(S) RA(A)  &kp RA(A)  &dk RA(S) S  &kp RA(E)   &dk RA(F) F  &kp LS(RA(B)       &kp LS(N8)     &kp N8  &dk RA(S) K    &kp RA(L)    &kp RA(SEMI)  &trans
+        &trans           &kp LS(C)  &kp RBKT     &kp LS(N3)  &kp N4       &kp RA(B)          &kp LS(RA(N))  &kp N7  &kp RA(COMMA)  &kp RA(DOT)  &dk C L       &trans
+                                        &EZ_SL(ODK_SHIFT_LAYER)  &trans   &trans             &trans  &comma  &trans
+      >;
+    };
+    one_dead_key_shift {
+      display-name = "OneDeadKeyShift";
+      bindings = <
+        &kp LS(RA(BSLH))  &dk C LS(A)    &trans           &dk C LS(E)    &trans           &trans       &trans  &trans  &dk RA(S) LS(I)          &kp LS(RA(O)     &dk C LS(SEMI)    &trans  
+        &trans            &kp LS(RA(A))  &dk RA(S) LS(S)  &kp LS(RA(E))  &dk RA(F) LS(F)  &trans       &trans  &trans  &dk RA(S) LS(K)          &dk RA(L) LS(L)  &kp LS(RA(SEMI))  &trans
+        &trans            &trans         &kp LS(RBKT)     &trans         &trans           &trans       &trans  &trans  &dk RA(COMMA) LS(COMMA)  &kp LS(RA(DOT))  &dk C LS(L)       &trans
+                                                                         &trans  &trans   &trans       &trans  &excl  &trans
+      >;
+    };
+  };  
+};

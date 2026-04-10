@@ -176,7 +176,7 @@
 };
 
 // Some layouts require extra layers to fit on the Quacken.
-#ifdef RALT_PRIO
+#ifdef SEC_SYM
   #include "extra_layers/sec_sym.dtsi"
 #endif
 

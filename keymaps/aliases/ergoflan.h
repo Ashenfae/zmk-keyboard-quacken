@@ -58,10 +58,11 @@
 #define S_QMARK &kp LS(O)
 
 // extra
-#define S_COMMA &kp DOT
-#define S_DOT   &kp N
-#define S_MONEY &euro
+#define S_COMMA  &kp DOT
+#define S_DOT    &kp N
+#define S_MONEY  &euro
 #define S_DEGRE  &celsius
+#define S_HYPHEN &kp N3
 
 / {
   behaviors {
