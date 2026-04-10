@@ -85,6 +85,12 @@
         <&macro_param_2to1>,
         <&kp MACRO_PLACEHOLDER>;
     };
+    sdk: shifted_dead_key {
+     compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&dk>, <&dk>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };		 
   };
   
   // Extra layers defined specifically for this keymap, appended to the base keymap.
@@ -95,7 +101,7 @@
       display-name = "OneDeadKey";
       bindings = <
         &kp RA(BSLH)     &dk C A    &trans       &dk C E     &kp N2       &trans             &trans         &kp N9  &dk RA(S) I    &kp RA(O)    &dk C SEMI    &trans  
-        &dk RA(S) RA(A)  &kp RA(A)  &dk RA(S) S  &kp RA(E)   &dk RA(F) F  &kp LS(RA(B))       &kp LS(N8)     &kp N8  &dk RA(S) K    &kp RA(L)    &kp RA(SEMI)  &trans
+        &dk RA(S) RA(A)  &kp RA(A)  &dk RA(S) S  &kp RA(E)   &dk RA(F) F  &kp LS(RA(B))      &kp LS(N8)     &kp N8  &dk RA(S) K    &kp RA(L)    &kp RA(SEMI)  &trans
         &trans           &kp LS(C)  &kp RBKT     &kp LS(N3)  &kp N4       &kp RA(B)          &kp LS(RA(N))  &kp N7  &kp RA(COMMA)  &kp RA(DOT)  &dk C L       &trans
                                         &EZ_SL(ODK_SHIFT_LAYER)  &trans   &trans             &trans  &comma  &trans
       >;
@@ -103,10 +109,10 @@
     one_dead_key_shift {
       display-name = "OneDeadKeyShift";
       bindings = <
-        &kp LS(RA(BSLH))  &dk C LS(A)    &trans           &dk C LS(E)    &trans           &trans       &trans  &trans  &dk RA(S) LS(I)          &kp LS(RA(O))     &dk C LS(SEMI)    &trans  
-        &trans            &kp LS(RA(A))  &dk RA(S) LS(S)  &kp LS(RA(E))  &dk RA(F) LS(F)  &trans       &trans  &trans  &dk RA(S) LS(K)          &dk RA(L) LS(L)  &kp LS(RA(SEMI))  &trans
-        &trans            &trans         &kp LS(RBKT)     &trans         &trans           &trans       &trans  &trans  &dk RA(COMMA) LS(COMMA)  &kp LS(RA(DOT))  &dk C LS(L)       &trans
-                                                                         &trans  &trans   &trans       &trans  &excl  &trans
+        &kp LS(RA(BSLH))  &sdk C LS(A)    &trans            &sdk C LS(E)    &trans            &trans       &trans  &trans  &sdk RA(S) LS(I)          &kp LS(RA(O))     &sdk C LS(SEMI)    &trans  
+        &trans            &kp LS(RA(A))   &sdk RA(S) LS(S)  &kp LS(RA(E))   &sdk RA(F) LS(F)  &trans       &trans  &trans  &sdk RA(S) LS(K)          &sdk RA(L) LS(L)  &kp LS(RA(SEMI))   &trans
+        &trans            &trans          &kp LS(RBKT)      &trans          &trans            &trans       &trans  &trans  &sdk RA(COMMA) LS(COMMA)  &kp LS(RA(DOT))   &sdk C LS(L)       &trans
+                                                                             &trans  &trans   &trans       &trans  &excl  &trans
       >;
     };
   };  
