@@ -95,7 +95,7 @@
       display-name = "OneDeadKey";
       bindings = <
         &kp RA(BSLH)     &dk C A    &trans       &dk C E     &kp N2       &trans             &trans         &kp N9  &dk RA(S) I    &kp RA(O)    &dk C SEMI    &trans  
-        &dk RA(S) RA(A)  &kp RA(A)  &dk RA(S) S  &kp RA(E)   &dk RA(F) F  &kp LS(RA(B)       &kp LS(N8)     &kp N8  &dk RA(S) K    &kp RA(L)    &kp RA(SEMI)  &trans
+        &dk RA(S) RA(A)  &kp RA(A)  &dk RA(S) S  &kp RA(E)   &dk RA(F) F  &kp LS(RA(B))       &kp LS(N8)     &kp N8  &dk RA(S) K    &kp RA(L)    &kp RA(SEMI)  &trans
         &trans           &kp LS(C)  &kp RBKT     &kp LS(N3)  &kp N4       &kp RA(B)          &kp LS(RA(N))  &kp N7  &kp RA(COMMA)  &kp RA(DOT)  &dk C L       &trans
                                         &EZ_SL(ODK_SHIFT_LAYER)  &trans   &trans             &trans  &comma  &trans
       >;
