@@ -67,15 +67,15 @@
     osls_check: osls_check {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&osls>, <&osltog ODK_SHIFT_LAYER>;
+      bindings = <&osls ODK_SHIFT_LAYER>, <&osltog ODK_SHIFT_LAYER>;
       mods = <(MOD_LSFT)>;
     };    
     osls: osls {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
+      compatible = "zmk,behavior-macro-one-param";
+      #binding-cells = <1>;
       tap-ms = <0>;
       wait-ms = <0>;
-      bindings = <&osm LSHIFT>, <&osls ODK_SHIFT_LAYER>;
+      bindings = <&osm LSHIFT>, <&macro_param_1to1>, <&osl MACRO_PLACEHOLDER>;
     };     
     osltog: osltog {
       compatible = "zmk,behavior-sticky-key";
