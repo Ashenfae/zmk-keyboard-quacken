@@ -61,7 +61,6 @@
         <&macro_param_1to1>,
         <&tog MACRO_PLACEHOLDER>, 
         <&macro_pause_for_release>,
-        <&kt LSHIFT>, 
         <&macro_param_1to1>,
         <&tog MACRO_PLACEHOLDER>; 
     };        
