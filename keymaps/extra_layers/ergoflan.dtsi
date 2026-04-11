@@ -51,10 +51,32 @@
       mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
       keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
     };	  
+    osl_tog_shift: osl_tog_shift {
+      compatible = "zmk,behavior-macro-one-param";
+      #binding-cells = <1>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings =
+        <&kt LSHIFT>
+        <&macro_param_1to1>,
+        <&tog MACRO_PLACEHOLDER>, 
+        <&macro_pause_for_release>,
+        <&kt LSHIFT>
+        <&macro_param_1to1>,
+        <&tog MACRO_PLACEHOLDER>, 
+    };        
+    osls: osls {
+      compatible = "zmk,behavior-sticky-key";
+      #binding-cells = <1>;
+      bindings = <&osl_tog_shift>;
+      release-after-ms = <1000>;
+      quick-release;
+      ignore-modifiers;
+    };      
     odk_shift: odk_shift {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&osl ODK_LAYER>, <&osl ODK_SHIFT_LAYER>;
+      bindings = <&osl ODK_LAYER>, <&osls ODK_SHIFT_LAYER>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };	
     
@@ -90,91 +112,6 @@
         <&macro_pause_for_release>,
         <&macro_param_2to1>,
         <&kp MACRO_PLACEHOLDER>;
-    };
-    circumflex: circumflex {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp C>, <&kp C>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    dkc: dead_key_circumflex {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      tap-ms = <0>;
-      wait-ms = <0>;
-      bindings =
-        <&circumflex>,
-        <&macro_pause_for_release>,
-        <&macro_param_1to1>,
-        <&kp MACRO_PLACEHOLDER>;
-    };    
-    latin: latin { 
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp RA(S)>, <&kp RA(S)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };  
-    dkl: dead_key_latin {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      tap-ms = <0>;
-      wait-ms = <0>;
-      bindings =
-        <&latin>,
-        <&macro_pause_for_release>,
-        <&macro_param_1to1>,
-        <&kp MACRO_PLACEHOLDER>;
-    };  
-   tilde: tilde { 
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp RA(F)>, <&kp RA(F)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };    
-    dkt: dead_key_tilde {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      tap-ms = <0>;
-      wait-ms = <0>;
-      bindings =
-        <&tilde>,
-        <&macro_pause_for_release>,
-        <&macro_param_1to1>,
-        <&kp MACRO_PLACEHOLDER>;
-    };  
-   diaresis: diaresis { 
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp RA(L)>, <&kp RA(L)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };  
-    dkd: dead_key_diaresis {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      tap-ms = <0>;
-      wait-ms = <0>;
-      bindings =
-        <&diaresis>,
-        <&macro_pause_for_release>,
-        <&macro_param_1to1>,
-        <&kp MACRO_PLACEHOLDER>;
-    };  
-    cedilla: cedilla {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp RA(COMMA)>, <&kp RA(COMMA)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    dkcd: dead_key_cedilla {
-      compatible = "zmk,behavior-macro-one-param";
-      #binding-cells = <1>;
-      tap-ms = <0>;
-      wait-ms = <0>;
-      bindings =
-        <&cedilla>,
-        <&macro_pause_for_release>,
-        <&macro_param_1to1>,
-        <&kp MACRO_PLACEHOLDER>;
     };  
   };
   
@@ -185,19 +122,19 @@
     one_dead_key {
       display-name = "OneDeadKey";
       bindings = <
-        &kp RA(BSLH)    &dkc A  &trans      &dkc E  &kp N2       &trans             &trans         &kp N9  &dkl I     &kp RA(O)    &dkc SEMI  &trans  
-        &dkl RA(A)  &kp RA(A)   &dkl S  &kp RA(E)   &dkt F   &kp LS(RA(B))      &kp LS(N8)     &kp N8  &dkl K     &kp RA(L)    &kp RA(SEMI)   &trans
-        &trans          &kp LS(C)   &kp RBKT    &kp LS(N3)  &kp N4       &kp RA(B)          &kp LS(RA(N))  &kp N7  &kp RA(COMMA)  &kp RA(DOT)  &dkc L     &trans
-                                        &osl ODK_SHIFT_LAYER  &trans   &comma TAB            &comma ENTER  &comma SPACE &trans
+        &kp RA(BSLH)     &dk C A    &trans       &kp C       &kp N2       &trans             &trans         &kp N9  &dk RA(S) I    &kp RA(O)    &dk C SEMI    &trans  
+        &dk RA(S) RA(A)  &kp RA(A)  &dk RA(S) S  &kp RA(E)   &dk RA(F) F  &kp LS(RA(B))      &kp LS(N8)     &kp N8  &dk RA(S) K    &kp RA(L)    &kp RA(SEMI) &trans
+        &trans           &kp LS(C)  &kp RBKT     &kp LS(N3)  &kp N4       &kp RA(B)          &kp LS(RA(N))  &kp N7  &kp RA(COMMA)  &kp RA(DOT)  &dk C L      &trans
+                                           &osl ODK_SHIFT_LAYER  &trans   &comma TAB         &comma ENTER  &comma SPACE &trans
       >;
     };
     one_dead_key_shift {
       display-name = "OneDeadKeyShift";
       bindings = <
-        &kp LS(RA(BSLH))  &dkc LS(A)  &trans          &dkc  LS(E)  &trans          &trans       &trans  &trans  &dkl LS(I)       &kp LS(RA(O))    &dkc LS(SEMI)  &trans  
-        &trans            &kp LS(RA(A))   &dkl LS(S)  &kp LS(RA(E))    &dkt LS(F)  &trans       &trans  &trans  &dkl LS(K)       &dkd LS(L)   &kp  LS(RA(SEMI))  &trans
-        &trans            &trans          &kp LS(RBKT)    &trans           &trans          &trans       &trans  &trans  &dkcd LS(COMMA)  &kp LS(RA(DOT))  &dkc  LS(L)    &trans
-                                                                      &trans  &trans   &excl TAB       &excl ENTER  &excl SPACE  &trans
+        &kp LS(RA(BSLH))  &dk C LS(A)    &trans           &dk C  LS(E)   &trans           &trans       &trans  &trans  &dk RA(S) LS(I)          &kp LS(RA(O))    &dk C LS(SEMI)     &trans  
+        &trans            &kp LS(RA(A))  &dk RA(S) LS(S)  &kp LS(RA(E))  &dk RA(F) LS(F)  &trans       &trans  &trans  &dk RA(S) LS(K)          &dk RA(L) LS(L)  &kp  LS(RA(SEMI))  &trans
+        &trans            &trans         &kp LS(RBKT)     &trans         &trans           &trans       &trans  &trans  &dk RA(COMMA) LS(COMMA)  &kp LS(RA(DOT))  &dk C  LS(L)       &trans
+                                                                        &trans  &trans   &excl TAB   &excl ENTER  &excl SPACE  &trans
       >;
     };
   };  
