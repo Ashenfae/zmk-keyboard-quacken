@@ -62,15 +62,22 @@
       #binding-cells = <0>;
       tap-ms = <0>;
       wait-ms = <0>;
-      bindings = <&kp K_CANCEL> <&osls_check>;
+      bindings = <&kp K_CANCEL>, <&osls_check>;
     };
     osls_check: osls_check {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&osl ODK_SHIFT_LAYER>, <&osls ODK_SHIFT_LAYER>;
+      bindings = <&osls ODK_SHIFT_LAYER>, <&osltog ODK_SHIFT_LAYER>;
       mods = <(MOD_LSFT)>;
     };    
     osls: osls {
+       compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <0>;
+      wait-ms = <0>;
+      bindings = <&osm LSHIFT>, <&osls ODK_SHIFT_LAYER>;
+    };     
+    osltog: osltog {
       compatible = "zmk,behavior-sticky-key";
       #binding-cells = <1>;
       bindings = <&osl_tog_shift>;
