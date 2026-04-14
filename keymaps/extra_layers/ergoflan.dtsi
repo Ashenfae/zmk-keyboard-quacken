@@ -24,7 +24,7 @@
 / {
   behaviors {
     TWO_LEVEL_KEY(hyphen, S_HYPHEN, &colon)
-    TWO_LEVEL_KEY(odk, &osl ODK_LAYER, DK_UNSTICK(odks))
+    TWO_LEVEL_KEY(odk, &osl ODK_LAYER, DK_UNSTICK(odk_shift, odks))
     TWO_LEVEL_KEY(odks, &osl ODK_SHIFT_LAYER, S_EXCL)
 	
     colon: colon {
