@@ -24,6 +24,7 @@
 / {
   behaviors {
     TWO_LEVEL_KEY(hyphen, S_HYPHEN, &colon)
+    TWO_LEVEL_KEY(odk, &osl ODK_LAYER, S_EXCL)
 	
     colon: colon {
       compatible = "zmk,behavior-macro";
@@ -32,20 +33,6 @@
       wait-ms = <0>;
       bindings = <&kp RA(SPACE) &kp RA(N)>;
     };
-    
-    odk: odk {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&odk_shift>, <&kp DOT>;
-      mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
-      keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
-    };	  
-    odk_shift: odk_shift {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&osl ODK_LAYER>, <&kp LS(DOT)>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };	          
   
     comma: comma {
       compatible = "zmk,behavior-macro-one-param";
