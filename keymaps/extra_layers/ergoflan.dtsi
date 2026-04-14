@@ -24,8 +24,8 @@
 / {
   behaviors {
     TWO_LEVEL_KEY(hyphen, S_HYPHEN, &colon)
-    TWO_LEVEL_KEY(odk, &osl ODK_LAYER, &odk_unstick)
-    TWO_LEVEL_KEY(odks, &kp A, S_EXCL)
+    TWO_LEVEL_KEY(odk, &osl ODK_LAYER, &dk_unstick(&odks))
+    TWO_LEVEL_KEY(odks, &osl ODK_SHIFT_LAYER, S_EXCL)
 	
     colon: colon {
       compatible = "zmk,behavior-macro";
@@ -35,12 +35,12 @@
       bindings = <&kp RA(SPACE) &kp RA(N)>;
     };
     
-    odk_unstick: odk_unstick {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
+    dk_unstick: dk_unstick {
+      compatible = "zmk,behavior-macro-one-param";
+      #binding-cells = <1>;
       tap-ms = <0>;
       wait-ms = <0>;
-      bindings = <&kp K_CANCEL>, <&odks>;
+      bindings = <&kp K_CANCEL>, <&macro_param_1to1>, <MACRO_PLACEHOLDER>;
     };
   
     comma: comma {
