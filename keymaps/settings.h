@@ -17,6 +17,7 @@
 // #define KB_LAYOUT_ERGLACE
 // #define KB_LAYOUT_QWERTY_INTL
 // #define KB_LAYOUT_QWERTY_LAFAYETTE
+#define KB_LAYOUT_ERGOFLAN
 
 // Keyboard layouts and shortcuts may vary between Windows / macOS / Linux.
 // Uncomment one of the following lines if using a non-Windows host:
@@ -35,7 +36,7 @@
 // Uncomment the following line for an improved dead key support;
 // (only applies to some Hummingbird keymaps and layout emulations)
 
-// #define ENABLE_FANCY_DEAD_KEYS
+#define ENABLE_FANCY_DEAD_KEYS
 
 
 /******************************************************************************
