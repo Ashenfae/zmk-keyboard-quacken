@@ -35,7 +35,7 @@
       bindings = 
         <&kp K_CANCEL>, 
         <&macro_param_1to1>,
-        <&MACRO_PLACEHOLDER>;        
+        <&macro_tap MACRO_PLACEHOLDER>;        
     };    
     colon: colon {
       compatible = "zmk,behavior-macro";
