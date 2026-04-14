@@ -23,19 +23,8 @@
 
 / {
   behaviors {
-    hyphen: hyphen {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&hyphen_colon>, <S_HYPHEN>;
-      mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
-      keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT|MOD_RALT)>;
-    };	  
-    hyphen_colon: hyphen_colon {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <S_HYPHEN>, <&colon>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };	
+    TWO_LEVEL_KEY(hyphen, S_HYPHEN, &colon)
+	
     colon: colon {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
