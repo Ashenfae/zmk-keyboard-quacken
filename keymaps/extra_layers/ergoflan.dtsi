@@ -31,7 +31,7 @@
     SAME_KEY(lpar, &kp N4)
     SAME_KEY(rquote, &kp N9)
     SAME_KEY(rpar, &kp N7)
-    TWO_LEVEL_KEY(diar, &kp RA(L), &dkl LS(L))
+    TWO_LEVEL_KEY(diar, &kp RA(L), &dkd LS(L))
     TWO_LEVEL_KEY(bang, &kp RA(DOT), &intbang)
     TWO_LEVEL_KEY(comment, &comma ENTER, &excl ENTER)
     TWO_LEVEL_KEY(commsp, &comma SPACE, &excl SPACE)
