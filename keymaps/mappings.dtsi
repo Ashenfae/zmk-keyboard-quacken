@@ -41,15 +41,22 @@
   mods = <(MOD_LSFT|MOD_RSFT)>;                       \
 };
 
-#define DK_UNSTICK(name, dk) name: name { \
-  compatible = "zmk,behavior-macro";      \
+#define SAME_KEY(name, base) name: name { \
+  compatible = "zmk,behavior-mod-morph";  \
   #binding-cells = <0>;                   \
-  tap-ms = <0>;                           \
-  wait-ms = <0>;                          \
-  bindings                                \
-    = <&kp K_CANCEL>                      \
-    , <dk>                                \
-    ;                                     \
+  bindings = <base>, <base>;              \
+  mods = <(MOD_LSFT|MOD_RSFT)>;           \
+};
+
+#define UNSTICK(name, key) name: name { \
+  compatible = "zmk,behavior-macro";    \
+  #binding-cells = <0>;                 \
+  tap-ms = <0>;                         \
+  wait-ms = <0>;                        \
+  bindings                              \
+    = <&kp K_CANCEL>                    \
+    , <key>                             \
+    ;                                   \
 };
 
 / {
