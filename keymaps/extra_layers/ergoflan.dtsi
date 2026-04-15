@@ -77,7 +77,7 @@
       tap-ms = <0>;
       wait-ms = <0>;
       bindings = 
-        <&macro_release LSHIFT>
+        <&macro_release LSHIFT>, 
         <&macro_tap &kp LS(DOT)>, 
         <&macro_param_1to1>,
         <&kp MACRO_PLACEHOLDER>;
