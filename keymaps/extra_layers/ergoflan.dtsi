@@ -91,7 +91,7 @@
     dkl: latin {
       compatible = "zmk,behavior-dead-key";
       #binding-cells = <1>;
-      dead-key = <RS(S)>;
+      dead-key = <RA(S)>;
     };    
     dkt: tilde {
       compatible = "zmk,behavior-dead-key";
@@ -127,7 +127,7 @@
       display-name = "OneDeadKeyShift";
       bindings = <
         &kp LS(RA(BSLH))  &dkc LS(A)     &trans        &dkc  LS(E)    &lquote     &trans              &trans         &rquote    &dkl LS(I)       &kp LS(RA(O))  &dkc LS(SEMI)      &trans  
-        &trans            &kp LS(RA(A))  &dkl LS(S)    &kp LS(RA(E))  &dkt LS(F)  &trans              &trans         &kp LS(N8) &dkl LS(K)       &dkl LS(L)     &kp  LS(RA(SEMI))  &trans
+        &trans            &kp LS(RA(A))  &dkl LS(S)    &kp LS(RA(E))  &dkt LS(F)  &trans              &trans         &kp LS(N8) &dkl LS(K)       &dkd LS(L)     &kp  LS(RA(SEMI))  &trans
         &trans            &kp LS(C)      &kp LS(RBKT)  &kp LS(N3)     &lpar       &kp LS(RA(B))       &kp LS(RA(N))  &rpar      &dkcd LS(COMMA)  &excl LS(DOT)  &dkc  LS(L)        &trans
                                                                  &trans  &trans   &excl TAB           &excl ENTER  &excl SPACE  &kp LS(DOT)
       >;
