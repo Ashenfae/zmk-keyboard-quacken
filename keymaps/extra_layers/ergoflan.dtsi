@@ -78,8 +78,7 @@
       #binding-cells = <1>;
       tap-ms = <0>;
       wait-ms = <0>;
-      bindings = 
-        <&macro_release &kp LSHIFT>, 
+      bindings =  
         <&macro_tap &kp LS(DOT)>, 
         <&macro_param_1to1>,
         <&kp MACRO_PLACEHOLDER>;
